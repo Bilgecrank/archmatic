@@ -1,7 +1,7 @@
 # Arch Linux Post Installation Setup and Config Scripts
 
 ```ascii
-';:cccccloddxkOOOOO0KKKKKKKKKXXKKKKK0OOOOO0KKKKKKKK0OkxkOOOkkkxddxxxddddoooddddoc:c:::::::::
+'::cccccloddxkOOOOO0KKKKKKKKKXXKKKKK0OOOOO0KKKKKKKK0OkxkOOOkkkxddxxxddddoooddddoc:c:::::::::
 cccclloodxkkOO0000KKKKKKKK0OkkkkkOO0OOOOO00KKKKKXKK00OkkOOOOkxdlc:;,'..',,,:cclllcc:::::::::
 llooodxkkOOO0KK0000Oxddoc:;,',,,,;::codxO00KKKKKXK000kxdkOkkkxol:'.......':c:',loc;;::::::::
 oodxxkkOOOOkdolclllc::;'..''..'....,cloxk00KKKKKXXK0OxlcdOkOkxollc;,''',;cll;.'ldlc,,,;:::::
@@ -33,6 +33,10 @@ These are the ratios
 | / | 100GB (under LVM) |
 | /swap | 10GB (under LVM) |
 | /home | Remainder (under LVM) |
+
+```shell
+pacstrap -K /mnt base linux linux-firmware networkmanager lvm2
+```
 
 ## Installation
 

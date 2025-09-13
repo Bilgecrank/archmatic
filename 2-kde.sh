@@ -15,14 +15,16 @@ Install sddm and kde
 "
 
 PKGS=(
-        'xfce4'                 # XFCE Desktop
-        'xfce4-goodies'         # All the extras
+        'sddm'                  # Necessary for plasma
+	'sddm-kcm'		# Configuration module for sddm
+        'plasma-desktop'        # Minimal plasma desktop
+	'plasma-nm'		# Plasma extension for network manager
+	'kmix'			# Audio mixer for plasma
+	'spectacle'
+	'okular'
 )
 
-for PKG in "${PKGS[@]}"; do
-    printf "Installing: %s\n" "$PKG"
-    sudo pacman -S "$PKG" --noconfirm --needed
-done
+sudo pacman -S "${PKGS[@]}" --noconfirm --needed
 
 printf "
 #####

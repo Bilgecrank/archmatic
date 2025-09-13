@@ -19,10 +19,7 @@ PKGS=(
 	mesa
 )
 
-for PKG in "${PKGS[@]}"; do
-    printf "Installing: %s\n" "$PKG"
-    sudo pacman -S "$PKG" --noconfirm --needed
-done
+sudo pacman -S "${PKGS[@]}" --noconfirm --needed
 
 printf "
 #####
