@@ -1,21 +1,22 @@
 # Arch Linux Post Installation Setup and Config Scripts
 
 ```ascii
-;:cccccloddxkOOOOO0KKKKKKKKKXXKKKKK0OOOOO0KKKKKKKK0OkxkOOOkkkxddxxxddddoooddddoc
-ccclloodxkkOO0000KKKKKKKK0OkkkkkOO0OOOOO00KKKKKXKK00OkkOOOOkxdlc:;,'..',,,:cclll
-looodxkkOOO0KK0000Oxddoc:;,',,,,;::codxO00KKKKKXK000kxdkOkkkxol:'.......':c:',lo
-odxxkkOOOOkdolclllc::;'..''..'....,cloxk00KKKKKXXK0OxlcdOkOkxollc;,''',;cll;.'ld
-xkOOOkoccc:;;:cldxxkkdc'.........'loloxkO0KKXXXXXK0OxllxOOOOkdc:oddddxxddoo;.,lo
-OO0OOx:;ldxkkkkkOOOOOOxl,......':oxocokO00KKXXXXXKK0koclk0OOkxo:cdxkkkxxxdo;.:lo
-000OOkc:dkkOOO00KK0KK0Okxl::;:ldxkxl:oOO00KKXXXXKKKKOdlokOOOkkdc:coxxxxxddc,;llo
-K00OOkl:okOO000KKKKKKKK00OOOOOOkkko;:xOOO0KKXXXXKKKKOxoodkOOkkxxolclodddo:;:lloo
-XK00Okd:cxk00KKKKKXXXKKKKKK000OOkd::dkkO0KKKXXKKKKK0Oxoc:cdkkxxxdolccccc::cllool
-KKK0OOx:'ck0KKXKKKKXKKKKKKK00OOkd::oxxO0KKKKKKKKKKK0kdlc;',cdxddddoollllllllll:,
-XKK00Okdc:lxO0KKKKKKKKKKKK0000kl;cdxxk0KXXXXKKKKKK0Okoc::,.'cddddddddoooolc:,'''
-XXXKK00OOkoodkO0000000KKK000Oolldxkkk00KKXXKKKXXXK0kd:';l:'.,lolooddoooc:,..';;;
-XXXXXXXXKK0kdllloxkOOOOOkkxolldkkxk00KKKKKKKXXXXKKkoc;..::,..,::cccc:,'.',;;;,''
-XXXXXXXXXXKK0kdoccllldddxdodxxkkkO000KKKKKKKXXKK0koc;'..,,'..'cc:,'''',;:;,'...'
-kO000KKKKKKK0000OkkxxkkkOOOkkkOOO00000KKXKKKK0Okxdoc:'..''....'''',;::;,....,;;:
+xdol:,'.';:cccccloddxkOOOOO0KKKKKKKKKXXKKKKK0OOOOO0KKKKKKKK0OkxkOOOkkkxddxxxddddoooddddoc:c:::::::::
+::;,'',:cccclloodxkkOO0000KKKKKKKK0OkkkkkOO0OOOOO00KKKKKXKK00OkkOOOOkxdlc:;,'..',,,:cclllcc:::::::::
+,,;:cclcllooodxkkOOO0KK0000Oxddoc:;,',,,,;::codxO00KKKKKXK000kxdkOkkkxol:'.......':c:',loc;;::::::::
+;clolllloodxxkkOOOOkdolclllc::;'..''..'....,cloxk00KKKKKXXK0OxlcdOkOkxollc;,''',;cll;.'ldlc,,,;:::::
+lllooloddxkOOOkoccc:;;:cldxxkkdc'.........'loloxkO0KKXXXXXK0OxllxOOOOkdc:oddddxxddoo;.,looc:'.';::::
+dddddxxkkOO0OOx:;ldxkkkkkOOOOOOxl,......':oxocokO00KKXXXXXKK0koclk0OOkxo:cdxkkkxxxdo;.:loolc,..,::::
+xxkkkOOO0000OOkc:dkkOOO00KK0KK0Okxl::;:ldxkxl:oOO00KKXXXXKKKKOdlokOOOkkdc:coxxxxxddc,;lloolc,',:::::
+kOOO00KKKK00OOkl:okOO000KKKKKKKK00OOOOOOkkko;:xOOO0KKXXXXKKKKOxoodkOOkkxxolclodddo:;:llooll:'',;::::
+O000KKKKKXK00Okd:cxk00KKKKKXXXKKKKKK000OOkd::dkkO0KKKXXKKKKK0Oxoc:cdkkxxxdolccccc::cllool:,',:,.,:::
+0KKXXXXKKKKK0OOx:'ck0KKXKKKKXKKKKKKK00OOkd::oxxO0KKKKKKKKKKK0kdlc;',cdxddddoollllllllll:,.',;,..;:::
+KKKXXXXXXXKK00Okdc:lxO0KKKKKKKKKKKK0000kl;cdxxk0KXXXXKKKKKK0Okoc::,.'cddddddddoooolc:,''',;,'..;::::
+KKKXXXXXXXXXKK00OOkoodkO0000000KKK000Oolldxkkk00KKXXKKKXXXK0kd:';l:'.,lolooddoooc:,..';;;;,,,,,:::::
+XKKXXXXXXXXXXXXXXKK0kdllloxkOOOOOkkxolldkkxk00KKKKKKKXXXXKKkoc;..::,..,::cccc:,'.',;;;,'',;::'':::::
+KXXXXKXXXXXXXXXXXXXKK0kdoccllldddxdodxxkkkO000KKKKKKKXXKK0koc;'..,,'..'cc:,'''',;:;,'...';cc:..:::::
+:cclloodxkO000KKKKKKK0000OkkxxkkkOOOkkkOOO00000KKXKKKK0Okxdoc:'..''....'''',;::;,....,;;::cc;..;::::
+olc;,,,;:ccc:ccllllddddxxxxkkkOOOOkkkkkkkkkkkkkOO0Okkxddoll:;'.......';;:::;,,....',;;:::cll;. .';::
 ```
 
 This README contains the steps I do to install and configure a fully-functional Arch Linux installation containing a desktop environment, all the support packages (network, bluetooth, audio, printers, etc.), along with all my preferred applications and utilities. The shell scripts in this repo allow the entire process to be automated.
