@@ -7,9 +7,12 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-echo
-echo "INSTALLING XFCE"
-echo
+printf "
+####################
+Install sddm and kde
+####################
+
+"
 
 PKGS=(
         'xfce4'                 # XFCE Desktop
@@ -17,10 +20,13 @@ PKGS=(
 )
 
 for PKG in "${PKGS[@]}"; do
-    echo "INSTALLING: ${PKG}"
+    printf "Installing: %s\n" "$PKG"
     sudo pacman -S "$PKG" --noconfirm --needed
 done
 
-echo
-echo "Done!"
-echo
+printf "
+#####
+Done!
+#####
+
+"

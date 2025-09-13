@@ -7,18 +7,17 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-prinf "
+printf "
 ###################################
-Setup mirrors and install microcode
+Install microcode and drivers
 ###################################
 
 "
 
 PKGS=(
 	intel-ucode
+	mesa
 )
-
-sudo pacman -Syu
 
 for PKG in "${PKGS[@]}"; do
     printf "Installing: %s\n" "$PKG"

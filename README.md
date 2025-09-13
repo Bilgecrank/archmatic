@@ -1,6 +1,5 @@
 # Arch Linux Post Installation Setup and Config Scripts
 
-```ascii
 ,:cccccccccllooddxxkOOOOOOO00KKKKKKKKKKK0KKXXKKKKKKKK00OOOOOO00KKKKKKKKKKKKK0OkkxxkOOOOOkkkkkxdodxxxxddddddddddddddddddocccc:::::::::
 ccccccllllloddxkkkkO0000000KKKKKKKKKKKK0000KKKKKKK0KK0OOOOOOO00KKKKKKKKXXKKK000OkkkO0OOOOOkkxollcllc:,'''',,,,;;:lllloolcccc:::::::::
 cccccloooddxxkkkOOO000K000KKKKKKKKKKK0OxoolllloooodkkkkkkkkkO00KKKKKKKXXXKK0000Okxxk0OOkOkkxdol:;'.....  .....'';::::cllcc:;:::::::::
@@ -23,7 +22,7 @@ XXXXXXNXXXXXXXKKK0Oxl:::coxkOOOOO0OOkkkkxl::coxkkkxxk000KKKKKKKKKKKXXXXXKKX0koll
 XXXXNXXXXXXXXXXXKKK0Oxoc,,,:lolloddddddolloddxxkxkkO00000KKKKKKKKKKXXXXKKK0kdl::;,. .;;,'....;cccc::,'.....,:::;;;,'....';:ccc;..,c::
 XXXXXXXXXXXXXKKXXKK0000OkdollcccldddxxxxxkkkxxkkOO0000000KKKKXXKKKXXXKK000kdlc:;'.  .,,''....;c::,....',;:cc::;'.....',,;::ccc;. ':::
 xkOO0K00KKKKKKKKKKK00000000OOOOOOOkkOOOOOOkkkkOOOO00OO0O00KKKXXKKXXK00OOkxddolcc;.  .'''...........,;:c::::,'.....';;:::::cccc;. .:::
-```
+
 
 This README contains the steps I do to install and configure a fully-functional Arch Linux installation containing a desktop environment, all the support packages (network, bluetooth, audio, printers, etc.), along with all my preferred applications and utilities. The shell scripts in this repo allow the entire process to be automated.
 
@@ -66,6 +65,7 @@ systemctl enable reflector.timer --now
 ```
 
 ### Initialize .gitconfig file
+
 So we can clone this repo...
 
 ```shell
@@ -82,18 +82,23 @@ git clone https://github.com/Bilgecrank/archmatic.git
 ```
 
 ### Run ArchMatic files
+
 Run the following scripts:
 
-    $   ./1-xorg.sh
-    $   ./2-xfce.sh 
-    $   ./3-network.sh 
-    $   ./4-bluetooth.sh 
-    $   ./5-audio.sh 
-    $   ./6-printers.sh 
-    $   ./7-software-pacman.sh
-    $   ./8-software-aur.sh
-    $   ./9-setup.sh
+```shell
+./1-hardware.sh
+./2-xfce.sh 
+./3-network.sh 
+./4-bluetooth.sh 
+./5-audio.sh 
+./6-printers.sh 
+./7-software-pacman.sh
+./8-software-aur.sh
+./9-setup.sh
+```
 
 ### Reboot
 
-    $   reboot
+```shell
+sudo systemctl reboot
+```
