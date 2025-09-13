@@ -1,84 +1,85 @@
 # Arch Linux Post Installation Setup and Config Scripts
 
-<img src="https://i.imgur.com/uFysgdN.png" />
+```ascii
+,:cccccccccllooddxxkOOOOOOO00KKKKKKKKKKK0KKXXKKKKKKKK00OOOOOO00KKKKKKKKKKKKK0OkkxxkOOOOOkkkkkxdodxxxxddddddddddddddddddocccc:::::::::
+ccccccllllloddxkkkkO0000000KKKKKKKKKKKK0000KKKKKKK0KK0OOOOOOO00KKKKKKKKXXKKK000OkkkO0OOOOOkkxollcllc:,'''',,,,;;:lllloolcccc:::::::::
+cccccloooddxxkkkOOO000K000KKKKKKKKKKK0OxoolllloooodkkkkkkkkkO00KKKKKKKXXXKK0000Okxxk0OOkOkkxdol:;'.....  .....'';::::cllcc:;:::::::::
+cllooooddxkkkOOO000KKKK00KK0Okxddolc;,,'.........',;,;;coxxkO000KKKKKKKXXXK000OkxdoxOOkkOkkxdocc:......  .....;cll:'.;oolc:,;c:::::::
+llodddxxkkkkO0000000Okxdoolc;,,,''.....,,..',;,..'''':clloxkO000KKKKKKKXXXK000Oxdl:lkOkkOOkxdolll:,.........'cllll,..;odolc;,,;::::::
+oodxxkOOOOOOOOkxdc,,'''',:cclooool;'',,''...........;lolloxkO00KKKXKKKXXXXKK00kxl;:okOOOOOkxxoccloolc::::clloooool,..:odool:;'.',;:::
+dxxkOOOOOkoc:;;,,;;:clloodxxxkkkxdl,..........'''..,odlcloxkOO0KKKXXKXXXXXKK00Odolodk00OOOOkxdc,:odxxxxxxkkxdddooc. .coooolc:,''.';::
+kkkOOOOOOx:',:lodxxkkkkkkkOkOOOOOkxo;....''''....':dddlcldkkO000KKKXXXXXXXKKK0OxoolcdO0OOOOkkxl::ldxxxkkkkxxxxdddc..,lllooolc;'...'::
+OOOO000OOOd::dxxkkkOOOOO000000000Okkdl;........,:oxxxdo:cxOOO0KKKKKXXXXKXKKKKK0Oxo::dO0OOOOkkxdc,;odxxkkkkxxxxddd:.,clllooolc:,...;::
+000O00OOOko,;dkkkOOOOO000KKKKKKKK0OOkxdolc::cldxxkkkkd:;cxOOO00KKKKXXXXXKKKKKKK0xollxkO0OOOkkxxo:;:coxxxxkxxxdddc,':llllooll:;,'';:::
+KKK000OOOOx:;oxkOOOOO000KKKKKKKKKK00OOOOkkkkkOOOkkkkxl',okOOOO00KKKXXXXXXKKKKKK0kdlodxO0OOOOkkkxdol:coddddxdddoc,,:lolloolll:;'..';::
+XXXK00OOkkxl:cdkkO00000KKKXXXXXKKKK0000000OOOOOOkkkxl,'cxOOkOO0K0KKXXXKXXKKKKK0OkxolcldkkOOOkxkxxddlc:clollooc;,;:loolooollc;'.,;;;;:
+KKKKK00OOkxo;,oxkO00KKKKKXXXXXXXKKKKKKKKKK0000OOOkxl,,cxxkkkO0KKK0KXXKKKKKKXK00Oxddl:,;cdkkkxxxxxdoolc:c:cc:::;:llllooool:,,'';c:..';
+KKKKK00OOOkd;.,okO00KKXXKKKKXXXXKKKKKKKKK0000OOOkxl,,cdxxkkO00KXKKKKKKKKKKKKK00kdoolc:'.;ldxxddddddoooolcclllllloolloooc,...,:::,..';
+XXKKKK0OO0Odl,.,oO00KKXKKKKKKXXKKKKKKKKKK0000OOkxl;;ldxxxkO0KKKXXXXKKKKKKKKK000kxolc::;...cdxxxddxdddoooolloolllllllc;,...,;;;;'..';:
+XXXXKK00OOOkxoc;:oxO00KKKKKKKKKKK00KKXKKK0000OOd;':dxxxxxk0KKXXXXXKKKKKKKXXK00Oxdl::c:;,..'lddxxddddddddoooooolllc;'...',;;;,,...':::
+XXXXKKKK00OOOkkdocldkOO0KKKKKKK0000KKKK00000Oxl:coxxxxkkO00KKXXXXKKKKKKKXXK00Okdl;,;coc;'..;looooodddddddooollc;'...,;:;;;;;'';,';c::
+XXXXXXXKKKKKKK00kxdoodkkOOOOO000000000000Okxc;cokkxxkkOO00KKKKKXXKKKKXXXKKXK0xdo:'..;ll;'...;ccccllooooollc;,'...';:::;;;,,,,;:,.,c::
+XXXXXXNXXXXXXXKKK0Oxl:::coxkOOOOO0OOkkkkxl::coxkkkxxk000KKKKKKKKKKKXXXXXKKX0kollc,. .:c;,'...;:::::cc:::;'....,;:::;,,'..',:cc:..,c::
+XXXXNXXXXXXXXXXXKKK0Oxoc,,,:lolloddddddolloddxxkxkkO00000KKKKKKKKKKXXXXKKK0kdl::;,. .;;,'....;cccc::,'.....,:::;;;,'....';:ccc;..,c::
+XXXXXXXXXXXXXKKXXKK0000OkdollcccldddxxxxxkkkxxkkOO0000000KKKKXXKKKXXXKK000kdlc:;'.  .,,''....;c::,....',;:cc::;'.....',,;::ccc;. ':::
+xkOO0K00KKKKKKKKKKK00000000OOOOOOOkkOOOOOOkkkkOOOO00OO0O00KKKXXKKXXK00OOkxddolcc;.  .'''...........,;:c::::,'.....';;:::::cccc;. .:::
+```
 
 This README contains the steps I do to install and configure a fully-functional Arch Linux installation containing a desktop environment, all the support packages (network, bluetooth, audio, printers, etc.), along with all my preferred applications and utilities. The shell scripts in this repo allow the entire process to be automated.
 
-Setting up an Arch system from scratch is usually a time-intensive process. My goal in developing these scripts and my __[installation guide](https://github.com/rickellis/Arch-Linux-Install-Guide)__ was to be able to go from a blank hard drive to a fully functional Arch system with all my files, applications, and preferences set, as efficiently as possible.
+## Pre-installation
 
-Typically a complete install takes me between two and three hours. About and hour for the base install, and a couple hours for all the packages to download. In addition to the scripts in this repo I run a script that copies over my dotfiles, preferences, fonts, git repos, etc., so that when I log into a new system everything is exactly where I left off on my previous one. Almost everything. I run a Windows dev environment on VirtualBox which takes additional setup time, and I have to enable some cloud services so I can access my files.
+Follow the steps from the [Arch installation guide](https://wiki.archlinux.org/title/Installation_guide).
 
-Note: Some of the package choices and tweaks are specific to the laptop I'm currently running, a Dell XPS 13...which kicks ass and runs Linux flawlessly.
+These are the ratios
 
-So...
+| Partition | Size |
+| -- | -- |
+| /efi | 4GB |
+| / | 100GB (under LVM) |
+| /swap | 10GB (under LVM) |
+| /home | Remainder (under LVM) |
 
-### Don't just run these scripts. Examine them. Customize them. Create your own versions.
+## Installation
 
----
+Follow these steps to get up to speed.
 
-### System Description
-I run XFCE desktop because it's fast, clean, and lightweight. I've tried nearly every other Linux desktop and a few window managers, but I keep coming back to XFCE.
-
-I don't install a greeter, preferring to always boot into the login shell by default. That way if there is ever a show-stopping problem with Xorg or XFCE I can fix it without having to boot from an external drive. To launch XFCE I enter `startx` in the terminal. If you run multiple desktops you can pass a path argument to `startx` pointing to the initialization file for the desktop you want to run.
-
-Since I don't use a greeter, to lock the screen I use Slimlock. I built a bunch of my own themes, and wrote a little shell script that randomizes the choice each time I lock the screen.
-
-To boot I use `systemd` because it's minimalist, comes built-in, and since the Linux kernel has an EFI image, all we need is a way to execute it.
-
-I also install the LTS Kernel along side the rolling one, and configure my bootloader to offer both as a choice during startup. This enables me to switch kernels in the event of a problem with the rolling one.
-
-I don't run an application dock. The Whisker Menu (which I trigger via a shortcut) allows very fast lookup without needing a mouse. This is similar to Spotlight Search on Mac or the Start menu on Windows.
-
-I set up my machines as development environments since that's mostly what I do. To that end I install lots of dev tools and customize various things to increase productivity. For exmple, I set up Apache server to run as me, with the WebServer directory located in my home folder.
-
-I run my own utilites: __[WifiVPN](https://github.com/rickellis/WifiVPN)__ for network/VPN connectivity, __[AURIC](https://github.com/rickellis/AURIC)__ for AUR package management, and __[ConkyMatic](https://github.com/rickellis/ConkyMatic)__ to theme my Conky whenever I switch wallpaper.
-
----
-
-The install steps are as follows:
-
-### Install Arch Linux
-
-Follow the steps in my __[Arch Linux Installation Gude](https://github.com/rickellis/Arch-Linux-Install-Guide)__. Then:
-
----
-
-### Boot into new installation
-And get online...
-
-    $   sudo wifi-menu
-
----
-
-### Install Reflector. 
+### Install Reflector.
 Reflector allows the fastest Arch mirrors to be used.
 
-    $   sudo pacman -Sy
+```shell
+sudo pacman -Syu
+sudo pacman -S reflector rsync curl
+```
 
-    $   sudo pacman -S reflector rsync curl
+Now generate mirrorlist.
 
-Now generate mirrorlist. Note: If you are not in the U.S. change "United States" to your own country.
 
-    $   reflector --verbose --country 'United States' -l 5 --sort rate --save /etc/pacman.d/mirrorlist
+```shell
+sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+```
 
----
+Set the `reflector.timer` to ensure that this is updated regularly. Check `/etc/xdg/reflector/reflector.conf` for settings, and make sure they match the above.
+
+```shell
+systemctl enable reflector.timer --now
+```
 
 ### Initialize .gitconfig file
 So we can clone this repo...
 
-    git config --global user.name "your-username"
-    git config --global user.email "your-email@gmail.com"
-    git config --global credential.helper cache
-    git config --global credential.helper 'cache --timeout=31536000'
-
----
+```shell
+git config --global user.name "your-username"
+git config --global user.email "your-email@gmail.com"
+```
 
 ### Clone ArchMatic
+
 Typically I just clone it into the home folder and delete it once I'm done.
 
-    $   git clone https://github.com/rickellis/ArchMatic.git
-
----
+```shell
+git clone https://github.com/Bilgecrank/archmatic.git
+```
 
 ### Run ArchMatic files
 Run the following scripts:
@@ -96,21 +97,3 @@ Run the following scripts:
 ### Reboot
 
     $   reboot
-
-### Initialize Xorg:
-At the terminal, run:
-
-    $   xinit
-
-On subsequent logins use:
-
-    $   startx
-
-
-Congrats!
-
-You should now have an Arch system running XFCE, with all the base packages that allow network connectivity, bluetooth, printers, etc., and a curated selection of applications.
-
-### Additional Resources
-
-I typically install the __[Arc Colora Themes](https://github.com/arcolinux/arcolinux-arc-themes)__. Just create a `.themes` folder in your home directory and place the Colora themes in there.

@@ -1,0 +1,50 @@
+[4mREFLECTOR[24m(1)                                                                                                                                            [4mREFLECTOR[24m(1)
+
+[1mNAME[0m
+       reflector - retrieve and filter the latest Pacman mirrorlist
+
+[1mSYNOPSIS[0m
+       [1mreflector [arguments][0m
+
+[1mDESCRIPTION[0m
+       reflector  is  a  Python script and associated Python module that can retrieve up-to-date Arch Linux mirror data from the Mirror Status (https://www.archlin‐
+       ux.org/mirrors/status/) web interface.
+
+[1mARGUMENTS[0m
+       See [1mreflector --help[22m.
+
+[1mEXAMPLES[0m
+       Print the latest mirrorlist to STDOUT:
+
+              reflector
+
+       Sort the five most recently synchronized mirrors by download speed and overwrite the local mirrorlist:
+
+              reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+
+       Select the 200 most recently synchronized HTTP or HTTPS mirrors, sort them by download speed, and overwrite the file /etc/pacman.d/mirrorlist:
+
+              reflector --latest 200 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist
+
+       Select the HTTPS mirrors synchronized within the last 12 hours and located in either France or Germany, sort them by download speed, and overwrite  the  file
+       [1m/etc/pacman.d/mirrorlist [22mwith the results:
+
+              reflector --country France,Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+[1mSYSTEMD INTEGRATION[0m
+       Reflector  includes  systemd  service and timer units that can be used to automatically update Pacman’s mirrorlist.  To use the timer, edit the configuration
+       file at [1m/etc/xdg/reflector/reflector.conf [22mand then enable the timer with
+
+              systemctl enable reflector.timer
+              systemctl start reflector.timer
+
+       Check that status with [1msystemctl list-timers[22m.  To update the mirrorlist immediately instead of waiting for the scheduled operation, run [1msystemctl  start  re‐[0m
+       [1mflector.service[22m.
+
+[1mSEE ALSO[0m
+       [1mpacman(8)[0m
+
+[1mAUTHORS[0m
+       Xyne.
+
+reflector User Manual                                                        2020-08-19                                                                 [4mREFLECTOR[24m(1)
