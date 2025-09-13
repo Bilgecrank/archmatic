@@ -1,28 +1,22 @@
 # Arch Linux Post Installation Setup and Config Scripts
 
-,:cccccccccllooddxxkOOOOOOO00KKKKKKKKKKK0KKXXKKKKKKKK00OOOOOO00KKKKKKKKKKKKK0OkkxxkOOOOOkkkkkxdodxxxxddddddddddddddddddocccc:::::::::
-ccccccllllloddxkkkkO0000000KKKKKKKKKKKK0000KKKKKKK0KK0OOOOOOO00KKKKKKKKXXKKK000OkkkO0OOOOOkkxollcllc:,'''',,,,;;:lllloolcccc:::::::::
-cccccloooddxxkkkOOO000K000KKKKKKKKKKK0OxoolllloooodkkkkkkkkkO00KKKKKKKXXXKK0000Okxxk0OOkOkkxdol:;'.....  .....'';::::cllcc:;:::::::::
-cllooooddxkkkOOO000KKKK00KK0Okxddolc;,,'.........',;,;;coxxkO000KKKKKKKXXXK000OkxdoxOOkkOkkxdocc:......  .....;cll:'.;oolc:,;c:::::::
-llodddxxkkkkO0000000Okxdoolc;,,,''.....,,..',;,..'''':clloxkO000KKKKKKKXXXK000Oxdl:lkOkkOOkxdolll:,.........'cllll,..;odolc;,,;::::::
-oodxxkOOOOOOOOkxdc,,'''',:cclooool;'',,''...........;lolloxkO00KKKXKKKXXXXKK00kxl;:okOOOOOkxxoccloolc::::clloooool,..:odool:;'.',;:::
-dxxkOOOOOkoc:;;,,;;:clloodxxxkkkxdl,..........'''..,odlcloxkOO0KKKXXKXXXXXKK00Odolodk00OOOOkxdc,:odxxxxxxkkxdddooc. .coooolc:,''.';::
-kkkOOOOOOx:',:lodxxkkkkkkkOkOOOOOkxo;....''''....':dddlcldkkO000KKKXXXXXXXKKK0OxoolcdO0OOOOkkxl::ldxxxkkkkxxxxdddc..,lllooolc;'...'::
-OOOO000OOOd::dxxkkkOOOOO000000000Okkdl;........,:oxxxdo:cxOOO0KKKKKXXXXKXKKKKK0Oxo::dO0OOOOkkxdc,;odxxkkkkxxxxddd:.,clllooolc:,...;::
-000O00OOOko,;dkkkOOOOO000KKKKKKKK0OOkxdolc::cldxxkkkkd:;cxOOO00KKKKXXXXXKKKKKKK0xollxkO0OOOkkxxo:;:coxxxxkxxxdddc,':llllooll:;,'';:::
-KKK000OOOOx:;oxkOOOOO000KKKKKKKKKK00OOOOkkkkkOOOkkkkxl',okOOOO00KKKXXXXXXKKKKKK0kdlodxO0OOOOkkkxdol:coddddxdddoc,,:lolloolll:;'..';::
-XXXK00OOkkxl:cdkkO00000KKKXXXXXKKKK0000000OOOOOOkkkxl,'cxOOkOO0K0KKXXXKXXKKKKK0OkxolcldkkOOOkxkxxddlc:clollooc;,;:loolooollc;'.,;;;;:
-KKKKK00OOkxo;,oxkO00KKKKKXXXXXXXKKKKKKKKKK0000OOOkxl,,cxxkkkO0KKK0KXXKKKKKKXK00Oxddl:,;cdkkkxxxxxdoolc:c:cc:::;:llllooool:,,'';c:..';
-KKKKK00OOOkd;.,okO00KKXXKKKKXXXXKKKKKKKKK0000OOOkxl,,cdxxkkO00KXKKKKKKKKKKKKK00kdoolc:'.;ldxxddddddoooolcclllllloolloooc,...,:::,..';
-XXKKKK0OO0Odl,.,oO00KKXKKKKKKXXKKKKKKKKKK0000OOkxl;;ldxxxkO0KKKXXXXKKKKKKKKK000kxolc::;...cdxxxddxdddoooolloolllllllc;,...,;;;;'..';:
-XXXXKK00OOOkxoc;:oxO00KKKKKKKKKKK00KKXKKK0000OOd;':dxxxxxk0KKXXXXXKKKKKKKXXK00Oxdl::c:;,..'lddxxddddddddoooooolllc;'...',;;;,,...':::
-XXXXKKKK00OOOkkdocldkOO0KKKKKKK0000KKKK00000Oxl:coxxxxkkO00KKXXXXKKKKKKKXXK00Okdl;,;coc;'..;looooodddddddooollc;'...,;:;;;;;'';,';c::
-XXXXXXXKKKKKKK00kxdoodkkOOOOO000000000000Okxc;cokkxxkkOO00KKKKKXXKKKKXXXKKXK0xdo:'..;ll;'...;ccccllooooollc;,'...';:::;;;,,,,;:,.,c::
-XXXXXXNXXXXXXXKKK0Oxl:::coxkOOOOO0OOkkkkxl::coxkkkxxk000KKKKKKKKKKKXXXXXKKX0kollc,. .:c;,'...;:::::cc:::;'....,;:::;,,'..',:cc:..,c::
-XXXXNXXXXXXXXXXXKKK0Oxoc,,,:lolloddddddolloddxxkxkkO00000KKKKKKKKKKXXXXKKK0kdl::;,. .;;,'....;cccc::,'.....,:::;;;,'....';:ccc;..,c::
-XXXXXXXXXXXXXKKXXKK0000OkdollcccldddxxxxxkkkxxkkOO0000000KKKKXXKKKXXXKK000kdlc:;'.  .,,''....;c::,....',;:cc::;'.....',,;::ccc;. ':::
-xkOO0K00KKKKKKKKKKK00000000OOOOOOOkkOOOOOOkkkkOOOO00OO0O00KKKXXKKXXK00OOkxddolcc;.  .'''...........,;:c::::,'.....';;:::::cccc;. .:::
-
+```ascii
+;:cccccloddxkOOOOO0KKKKKKKKKXXKKKKK0OOOOO0KKKKKKKK0OkxkOOOkkkxddxxxddddoooddddoc
+ccclloodxkkOO0000KKKKKKKK0OkkkkkOO0OOOOO00KKKKKXKK00OkkOOOOkxdlc:;,'..',,,:cclll
+looodxkkOOO0KK0000Oxddoc:;,',,,,;::codxO00KKKKKXK000kxdkOkkkxol:'.......':c:',lo
+odxxkkOOOOkdolclllc::;'..''..'....,cloxk00KKKKKXXK0OxlcdOkOkxollc;,''',;cll;.'ld
+xkOOOkoccc:;;:cldxxkkdc'.........'loloxkO0KKXXXXXK0OxllxOOOOkdc:oddddxxddoo;.,lo
+OO0OOx:;ldxkkkkkOOOOOOxl,......':oxocokO00KKXXXXXKK0koclk0OOkxo:cdxkkkxxxdo;.:lo
+000OOkc:dkkOOO00KK0KK0Okxl::;:ldxkxl:oOO00KKXXXXKKKKOdlokOOOkkdc:coxxxxxddc,;llo
+K00OOkl:okOO000KKKKKKKK00OOOOOOkkko;:xOOO0KKXXXXKKKKOxoodkOOkkxxolclodddo:;:lloo
+XK00Okd:cxk00KKKKKXXXKKKKKK000OOkd::dkkO0KKKXXKKKKK0Oxoc:cdkkxxxdolccccc::cllool
+KKK0OOx:'ck0KKXKKKKXKKKKKKK00OOkd::oxxO0KKKKKKKKKKK0kdlc;',cdxddddoollllllllll:,
+XKK00Okdc:lxO0KKKKKKKKKKKK0000kl;cdxxk0KXXXXKKKKKK0Okoc::,.'cddddddddoooolc:,'''
+XXXKK00OOkoodkO0000000KKK000Oolldxkkk00KKXXKKKXXXK0kd:';l:'.,lolooddoooc:,..';;;
+XXXXXXXXKK0kdllloxkOOOOOkkxolldkkxk00KKKKKKKXXXXKKkoc;..::,..,::cccc:,'.',;;;,''
+XXXXXXXXXXKK0kdoccllldddxdodxxkkkO000KKKKKKKXXKK0koc;'..,,'..'cc:,'''',;:;,'...'
+kO000KKKKKKK0000OkkxxkkkOOOkkkOOO00000KKXKKKK0Okxdoc:'..''....'''',;::;,....,;;:
+```
 
 This README contains the steps I do to install and configure a fully-functional Arch Linux installation containing a desktop environment, all the support packages (network, bluetooth, audio, printers, etc.), along with all my preferred applications and utilities. The shell scripts in this repo allow the entire process to be automated.
 
