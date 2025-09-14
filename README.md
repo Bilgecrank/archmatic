@@ -85,15 +85,8 @@ git clone https://github.com/Bilgecrank/archmatic.git
 Run the following scripts:
 
 ```shell
-./1-hardware.sh
-./2-xfce.sh 
-./3-network.sh 
-./4-bluetooth.sh 
-./5-audio.sh 
-./6-printers.sh 
-./7-software-pacman.sh
-./8-software-aur.sh
-./9-setup.sh
+./1-install-pkgs.sh
+./2-setup.sh
 ```
 
 ### Reboot

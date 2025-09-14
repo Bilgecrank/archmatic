@@ -1,4 +1,0 @@
-plasma-nm
-kmix
-spectacle
-okular

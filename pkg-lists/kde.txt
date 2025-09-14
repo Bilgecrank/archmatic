@@ -1,3 +1,7 @@
 sddm
 sddm-kcm
 plasma-desktop
+plasma-nm
+kmix
+spectacle
+okular
