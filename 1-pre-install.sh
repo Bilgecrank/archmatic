@@ -9,9 +9,7 @@
 #-------------------------------------------------------------------------
 
 printf "
-###########################
-Configure pre-installation
-###########################
+ARCHMATIC: Configure pre-installation
 
 "
 
@@ -45,6 +43,22 @@ function format-disk() {
 	mount --mkdir "/dev/${block_dev}1" /mnt/boot
 	mount --mkdir /dev/vg0/home /mnt/home
 	swapon /dev/vg0/swap
+
+	pacstrap /mnt base base-devel linux linux-firmware nvim sudo --noconfirm --needed
+	genfstab -U /mnt >> /mnt/etc/fstab
+
+	root_uuid=$(blkid /dev/vg0/root -s UUID -o value)
+	bootctl install --esp-path=/mnt/boot
+	mkdir -p /mnt/boot/loader/entries
+	cat <<-EOF > /mnt/boot/loader/entries/arch.conf
+	title Arch Linux  
+	linux /vmlinuz-linux  
+	initrd  /initramfs-linux.img  
+	options root=UUID=${root_uuid} rw
+	EOF
+
+	#TODO: Add LVM hook for mkinitipio
+
 }
 
 lsblk -p | grep disk
@@ -54,15 +68,13 @@ read -r input
 if test -b "$input"; then
   printf "Formatting and preparing %s for Arch\n" "$input"
   format-disk "$input"
+  printf "
+  ARCHMATIC: Done!
+  
+  "
 else
   printf "%s is not a block device\n" "$input"
 fi
 
 
 
-printf "
-#####
-Done!
-#####
-
-"
