@@ -8,11 +8,14 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
+. ./utils.sh
+
 printf "
-ARCHMATIC: Configure pre-installation
+archmatic: Configure pre-installation
 
 "
 
+# Formats the block device and prepares it to be bootable with LVM.
 function format-disk() {
 	block_dev="$1"
 	sgdisk -Z "$block_dev"
@@ -57,24 +60,21 @@ function format-disk() {
 	options root=UUID=${root_uuid} rw
 	EOF
 
-	#TODO: Add LVM hook for mkinitipio
-
+	# Set hooks for mkinitipio to include lvm2
+	cat <<-EOF > /etc/mkinitcpio.conf.d/hooks.conf
+	HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block lvm2 filesystems fsck)
+	EOF
 }
 
 lsblk -p | grep disk
 echo "Please enter disk to work on: (example /dev/sda)"
 read -r input
 
+logprint "$input"
 if test -b "$input"; then
-  printf "Formatting and preparing %s for Arch\n" "$input"
+  logprint "Formatting and preparing $input for Arch"
   format-disk "$input"
-  printf "
-  ARCHMATIC: Done!
-  
-  "
+  logprint "done!"
 else
-  printf "%s is not a block device\n" "$input"
+  logprint "$input is not a block device"
 fi
-
-
-
