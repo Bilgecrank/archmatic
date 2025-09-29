@@ -1,1 +1,5 @@
 cups
+cups-pdf
+skanpage
+gutenprint
+foomatic-db-gutenprint-ppds

@@ -10,14 +10,9 @@ rsync
 unrar
 unzip
 wget
-zenity
-gparted
-parted
 clang
 cmake
 git
-gcc
-glibc
 npm
 python
 chromium

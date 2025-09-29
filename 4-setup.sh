@@ -9,18 +9,23 @@
 
 . ./utils.sh
 
+configure_dotfiles() {
+	git clone git@github.com:Bilgecrank/.dotfiles.git "${HOME}/.dotfiles"
+	stow --dir="${HOME}/.dotfiles" alacritty bash home nvim startship tmux
+}
+
 configure_system() {
-	logprint "Setup post install of packages"
-	
+	logprint "Set up the user experience."
 	
 	logprint "Enable bluetooth"
-	sudo systemctl enable bluetooth.service
-	sudo systemctl start bluetooth.service
+	sudo systemctl enable bluetooth.service --now
 	
 	logprint "Enabling cups"
-	systemctl enable org.cups.cupsd.service
-	systemctl start org.cups.cupsd.service
+	sudo systemctl enable cups.service --now
 	
 	logprint "Rebooting"
 	sudo systemctl reboot
 }
+
+configure_dotfiles || exit
+configure_system || exit
