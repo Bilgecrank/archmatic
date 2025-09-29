@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-logfile="archmatic.log"
+logfile="${HOME}/archmatic.log"
 
 logprint() {
 	printf "archmatic[$(basename "$0")]: %s\n" "$1"

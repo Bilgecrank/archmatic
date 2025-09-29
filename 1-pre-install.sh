@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
 
-#-------------------------------------------------------------------------
-#      _          _    __  __      _   _    
-#     /_\  _ _ __| |_ |  \/  |__ _| |_(_)__ 
-#    / _ \| '_/ _| ' \| |\/| / _` |  _| / _|
-#   /_/ \_\_| \__|_||_|_|  |_\__,_|\__|_\__| 
-#  Arch Linux Post Install Setup and Config
-#-------------------------------------------------------------------------
+#------------------------------------\
+#             _             _   _     \
+# ___ ___ ___| |_ _____ ___| |_|_|___  \
+#| .'|  _|  _|   |     | .'|  _| |  _| /
+#|__,|_| |___|_|_|_|_|_|__,|_| |_|___|/
+#------------------------------------/
 
 . ./utils.sh
 
-printf "
-archmatic: Configure pre-installation
-
-"
+logprint "Format a block device and prepare it"
 
 # Formats the block device and prepares it to be bootable with LVM.
 function format-disk() {
@@ -67,7 +63,7 @@ function format-disk() {
 }
 
 lsblk -p | grep disk
-echo "Please enter disk to work on: (example /dev/sda)"
+printf "Please enter disk to work on: (example /dev/sda)\n"
 read -r input
 
 logprint "$input"
