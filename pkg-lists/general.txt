@@ -4,6 +4,7 @@ nvim
 bash-completion
 curl
 discord
+stow
 htop
 openssh
 rsync
