@@ -1,2 +1,5 @@
 bluedevil
 wine-mono
+wl-clipboard
+xclip
+xsel
