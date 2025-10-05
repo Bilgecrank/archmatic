@@ -39,7 +39,7 @@ function format-disk() {
 	mkswap /dev/vg0/swap
 
 	mount /dev/vg0/root /mnt
-	mount --mkdir "/dev/${block_dev}1" /mnt/boot
+	mount --mkdir "${block_dev}1" /mnt/boot
 	mount --mkdir /dev/vg0/home /mnt/home
 	swapon /dev/vg0/swap
 
