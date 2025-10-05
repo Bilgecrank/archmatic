@@ -41,18 +41,18 @@ function format-disk() {
 	vgcreate vg0 "${block_dev}2"
 
 
-	part_dev_size=$(blockdev --getsize64 "${block_dev}1")
-	root_size=$((part_dev_size * 10 / 100 / 1024))
+	lvm_part_size=$(blockdev --getsize64 "${block_dev}2")
+	root_size=$((lvm_part_size * 10 / 100 / 1024))
 	lvcreate -L "$root_size"K vg0 -n root
 	mkfs.ext4 /dev/vg0/root
 
 
-	home_size=$((part_dev_size * 50 / 100 / 1024))
+	home_size=$((lvm_part_size * 50 / 100 / 1024))
 	lvcreate -L "$home_size"K vg0 -n home
 	mkfs.ext4 /dev/vg0/home
 
 	# Setup is not geared to hibernation, maximum 10 gibibytes, minimum 1 gibibyte.
-	raw_swap_size=$((part_dev_size * 5 / 100))
+	raw_swap_size=$((lvm_part_size * 5 / 100))
 	raw_swap_size=$((raw_swap_size > (10 * gibibyte) ? (10 * gibibyte) : raw_swap_size ))
 	raw_swap_size=$((raw_swap_size < gibibyte ? gibibyte : raw_swap_size ))
 
