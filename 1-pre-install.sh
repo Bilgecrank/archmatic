@@ -14,10 +14,19 @@ logprint "Format a block device and prepare it"
 # Formats the block device and prepares it to be bootable with LVM.
 function format-disk() {
 	block_dev="$1"
+	gibibyte="$((1024 ** 3))"
+	block_dev_size=$(blockdev --getsize64 "$block_dev")
+	
+	# boot drive no more than 4GiB or 5% the drive, no less than 1GiB
+	raw_boot_size=$((block_dev_size * 5 / 100))
+	raw_boot_size=$((raw_boot_size > (4 * gibibyte) ? (4 * gibibyte) : raw_boot_size ))
+	raw_boot_size=$((raw_boot_size > gibibyte ? gibibyte : raw_boot_size ))
+
+	boot_part_size=$((raw_boot_size / 1024)) # to Kibibytes.
 	sgdisk -Z "$block_dev"
 	sgdisk -o "$block_dev"
 	
-	sgdisk -n 1:0:+3814M \
+	sgdisk -n 1:0:+"$boot_part_size"K \
 		-t 1:ef00 \
 		-c 1:"EFI System Partition" \
 		"$block_dev"
@@ -31,11 +40,23 @@ function format-disk() {
 	pvcreate "${block_dev}2"
 	vgcreate vg0 "${block_dev}2"
 
-	lvcreate -L 100G vg0 -n root
+
+	root_size=$((block_dev_size * 10 / 100 / 1024))
+	lvcreate -L "$root_size"K vg0 -n root
 	mkfs.ext4 /dev/vg0/root
-	lvcreate -L 500G vg0 -n home
+
+
+	home_size=$((block_dev_size * 50 / 100 / 1024))
+	lvcreate -L "$home_size"K vg0 -n home
 	mkfs.ext4 /dev/vg0/home
-	lvcreate -L 10G vg0 -n swap
+
+	# Setup is not geared to hibernation, maximum 10 gibibytes, minimum 1 gibibyte.
+	raw_swap_size=$((block_dev_size * 5 / 100))
+	raw_swap_size=$((raw_swap_size > (10 * gibibyte) ? (10 * gibibyte) : raw_swap_size ))
+	raw_swap_size=$((raw_swap_size > gibibyte ? gibibyte : raw_swap_size ))
+
+	swap_size=$((raw_swap_size / 1024)) # to Kibibytes.
+	lvcreate -L "$swap_size"K vg0 -n swap
 	mkswap /dev/vg0/swap
 
 	mount /dev/vg0/root /mnt
