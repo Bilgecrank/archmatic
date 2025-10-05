@@ -20,7 +20,7 @@ function format-disk() {
 	# boot drive no more than 4GiB or 5% the drive, no less than 1GiB
 	raw_boot_size=$((block_dev_size * 5 / 100))
 	raw_boot_size=$((raw_boot_size > (4 * gibibyte) ? (4 * gibibyte) : raw_boot_size ))
-	raw_boot_size=$((raw_boot_size > gibibyte ? gibibyte : raw_boot_size ))
+	raw_boot_size=$((raw_boot_size < gibibyte ? gibibyte : raw_boot_size ))
 
 	boot_part_size=$((raw_boot_size / 1024)) # to Kibibytes.
 	sgdisk -Z "$block_dev"
@@ -41,19 +41,20 @@ function format-disk() {
 	vgcreate vg0 "${block_dev}2"
 
 
-	root_size=$((block_dev_size * 10 / 100 / 1024))
+	part_dev_size=$(blockdev --getsize64 "${block_dev}1")
+	root_size=$((part_dev_size * 10 / 100 / 1024))
 	lvcreate -L "$root_size"K vg0 -n root
 	mkfs.ext4 /dev/vg0/root
 
 
-	home_size=$((block_dev_size * 50 / 100 / 1024))
+	home_size=$((part_dev_size * 50 / 100 / 1024))
 	lvcreate -L "$home_size"K vg0 -n home
 	mkfs.ext4 /dev/vg0/home
 
 	# Setup is not geared to hibernation, maximum 10 gibibytes, minimum 1 gibibyte.
-	raw_swap_size=$((block_dev_size * 5 / 100))
+	raw_swap_size=$((part_dev_size * 5 / 100))
 	raw_swap_size=$((raw_swap_size > (10 * gibibyte) ? (10 * gibibyte) : raw_swap_size ))
-	raw_swap_size=$((raw_swap_size > gibibyte ? gibibyte : raw_swap_size ))
+	raw_swap_size=$((raw_swap_size < gibibyte ? gibibyte : raw_swap_size ))
 
 	swap_size=$((raw_swap_size / 1024)) # to Kibibytes.
 	lvcreate -L "$swap_size"K vg0 -n swap
