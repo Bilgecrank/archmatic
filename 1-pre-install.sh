@@ -31,11 +31,11 @@ function format-disk() {
 	pvcreate "${block_dev}2"
 	vgcreate vg0 "${block_dev}2"
 
-	lvcreate -L 100G -n root
+	lvcreate -L 100G vg0 -n root
 	mkfs.ext4 /dev/vg0/root
-	lvcreate -L 500G -n home
+	lvcreate -L 500G vg0 -n home
 	mkfs.ext4 /dev/vg0/home
-	lvcreate -L 10G -n swap
+	lvcreate -L 10G vg0 -n swap
 	mkswap /dev/vg0/swap
 
 	mount /dev/vg0/root /mnt
