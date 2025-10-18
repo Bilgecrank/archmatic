@@ -1,3 +1,0 @@
-networkmanager
-smbclient
-cifs-utils
