@@ -12,10 +12,10 @@
 create_user() {
 	logprint "Creating main user"
 
-	useradd -m -G wheel -s /bin/bash "$USERNAME"
-	echo "$USERNAME:$PASSWORD" | chpasswd
+	useradd -m -G wheel -s /bin/bash "$ARCHUSER"
+	echo "$ARCHUSER:$ARCHPASS" | chpasswd
 	
-	logprint "${USERNAME} created"
+	logprint "${ARCHUSER} created"
 }
 
 wheel_shall_not_pass() {
