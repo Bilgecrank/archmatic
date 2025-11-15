@@ -22,8 +22,7 @@ cmake
 git
 npm
 python
-chromium
-firefox
+vivaldi
 filezilla
 mpv
 gimp

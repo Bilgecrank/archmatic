@@ -28,6 +28,37 @@ wheel_shall_not_pass() {
 	logprint "wheel does what it wants now"
 }
 
+setup_automount_fileshare() {
+	logprint "Install the mount and automount units for local filesharing"
+
+	cat<<-EOF > /etc/systemd/system/mnt-gondolin.mount
+	[Unit]
+	Description=Gondolin the File Share
+	
+	[Mount]
+	What=//192.168.1.81/gondolink
+	Where=/mnt/gondolin
+	Options=_netdev,credentials=/etc/samba/credentials/share,iocharset=utf8,uid=1000,gid=1000,file_mode=0664,dir_mode=0775
+	Type=cifs
+	TimeoutSec=30
+	
+	[Install]
+	WantedBy=multi-user.target
+	EOF
+
+	cat<<-EOF > /etc/systemd/system/mnt-gondolin.automount
+	[Unit]
+	Description=Automount myshare
+	
+	[Automount]
+	Where=/mnt/gondolin
+	
+	[Install]
+	WantedBy=multi-user.target
+	EOF
+	logprint "Fileshare units set, remember to set credentials in /etc/samba/credentials/share"
+}
+
 enable_multilib() {
 	logprint "Enabling multilib for 32-bit packages"
 

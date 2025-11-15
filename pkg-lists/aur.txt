@@ -1,5 +1,2 @@
-openmw-git
-openscenegraph-openmw-git
 proton-ge-custom-bin
-recastnavigation-openmw
 slack-desktop-wayland
