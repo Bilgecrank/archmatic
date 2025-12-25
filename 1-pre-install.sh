@@ -65,7 +65,7 @@ function format-disk() {
 	mount --mkdir /dev/vg0/home /mnt/home
 	swapon /dev/vg0/swap
 
-	pacstrap /mnt base base-devel git linux linux-firmware nvim sudo --noconfirm --needed
+	pacstrap /mnt base base-devel git linux linux-firmware nvim sudo puppet --noconfirm --needed
 	genfstab -U /mnt >> /mnt/etc/fstab
 
 	root_uuid=$(blkid /dev/vg0/root -s UUID -o value)
