@@ -68,6 +68,7 @@ function format-disk() {
 	mount /dev/vg0/root /mnt
 	mount --mkdir "${block_dev}1" /mnt/boot
 	mount --mkdir /dev/vg0/home /mnt/home
+	mount --mkdir /dev/vg0/var /mnt/var
 	swapon /dev/vg0/swap
 
 	pacstrap /mnt base base-devel git linux-lts linux-firmware neovim sudo puppet --noconfirm --needed
