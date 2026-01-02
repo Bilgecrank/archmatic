@@ -71,21 +71,21 @@ function format-disk() {
 	mount --mkdir /dev/vg0/var /mnt/var
 	swapon /dev/vg0/swap
 
-	pacstrap /mnt base base-devel git linux-lts linux-firmware neovim sudo puppet --noconfirm --needed
+	pacstrap /mnt base base-devel git linux-lts linux-firmware neovim sudo lvm2 puppet --noconfirm --needed
 	genfstab -U /mnt >> /mnt/etc/fstab
 
 	root_uuid=$(blkid /dev/vg0/root -s UUID -o value)
 	bootctl install --esp-path=/mnt/boot
 	mkdir -p /mnt/boot/loader/entries
 	cat <<-EOF > /mnt/boot/loader/entries/arch.conf
-	title Arch Linux  
-	linux /vmlinuz-linux  
-	initrd  /initramfs-linux.img  
+	title Arch Linux (LTS)
+	linux /vmlinuz-linux-lts
+	initrd /initramfs-linux-lts.img
 	options root=UUID=${root_uuid} rw
 	EOF
 
 	# Set hooks for mkinitipio to include lvm2
-	cat <<-EOF > /etc/mkinitcpio.conf.d/hooks.conf
+	cat <<-EOF > /mnt/etc/mkinitcpio.conf.d/hooks.conf
 	HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block lvm2 filesystems fsck)
 	EOF
 }
